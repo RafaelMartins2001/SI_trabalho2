@@ -9,16 +9,16 @@ import org.junit.Test;
 public class ClienteTest {
    @Test
     public void newClient(){
-       EntityManagerFactory emf =
-               Persistence.createEntityManagerFactory("isel.sisinf.grp05");
+       EntityManagerFactory emf = Persistence.createEntityManagerFactory("g05");
        EntityManager em = emf.createEntityManager();
-
        try
        {
+           System.out.println("--# CREATE Cliente");
            em.getTransaction().begin();
+
            Cliente c = new Cliente();
 
-           c.setNif(555);
+           c.setNif(555555555);
            c.setNome("rui silva");
            c.setMorada("Rua Numero 1");
            c.setTelefone(916726354);

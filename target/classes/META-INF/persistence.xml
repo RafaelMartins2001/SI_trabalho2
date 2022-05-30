@@ -1,10 +1,9 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.1" xmlns="http://java.sun.com/xml/ns/persistence"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
-    <persistence-unit name="isel.sisinf.grp05" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="g05" transaction-type="RESOURCE_LOCAL">
         <provider>
             org.eclipse.persistence.jpa.PersistenceProvider
         </provider>
@@ -16,20 +15,16 @@
         <properties>
 
             <property name = "jakarta.persistence.jdbc.url"
-                      value = "jdbc:postgresql://localhost:5432/SisInf">
-            </property>
+                      value = "jdbc:postgresql://10.62.73.79:5432/t42dg5"/>
 
             <property name="jakarta.persistence.jdbc.user"
-                      value = "SisInf">
-            </property>
+                      value = "t42dg5"/>
 
             <property name="jakarta.persistence.jdbc.password"
-                      value = "1234">
-            </property>
+                      value = "t42dg5"/>
 
             <property name="jakarta.persistence.jdbc.driver"
-                      value = "org.postgresql.Driver">
-            </property>
+                      value = "org.postgresql.Driver"/>
 
         </properties>
 

@@ -10,7 +10,7 @@ public class ClienteTest {
    @Test
     public void newClient(){
        EntityManagerFactory emf =
-               Persistence.createEntityManagerFactory("JPAExemplo");
+               Persistence.createEntityManagerFactory("isel.sisinf.grp05");
        EntityManager em = emf.createEntityManager();
 
        try

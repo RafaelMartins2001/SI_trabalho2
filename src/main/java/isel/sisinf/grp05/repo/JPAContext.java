@@ -29,6 +29,13 @@ import java.util.List;
 import isel.sisinf.grp05.model.cliente.Cliente;
 import jakarta.persistence.*;
 
+/*
+* TODO
+*   criar um repositorio por classe
+*   implementar os metodos de cada repositorio
+*
+* */
+
 public class JPAContext implements IContext{
 	private EntityManagerFactory _emf;
     private EntityManager _em;
@@ -50,7 +57,7 @@ public class JPAContext implements IContext{
 	protected class ClienteRepository implements IRepository<Cliente, Collection<Cliente>, Integer> {
 		@Override
 		public Cliente findByKey(Integer key) {
-			return _em.createNamedQuery("Course.findByKey", Cliente.class)
+			return _em.createNamedQuery("Cliente.findByKey", Cliente.class)
 					.setParameter("key", key)
 					.getSingleResult();
 		}

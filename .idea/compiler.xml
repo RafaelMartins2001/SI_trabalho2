@@ -6,8 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Aula13" />
         <module name="SI_trabalho2" />
+        <module name="isel.sisinf.grp05" />
+        <module name="Aula13" />
         <module name="SI_TP2" />
       </profile>
     </annotationProcessing>

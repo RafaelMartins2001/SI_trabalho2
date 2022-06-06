@@ -21,14 +21,22 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package isel.sisinf.grp05.repo;
+package isel.sisinf.grp05.model.Course;
 
-import java.util.Collection;
+import isel.sisinf.grp05.model.Cliente.Cliente;
+
 import java.util.Set;
 
-/*
-public interface IStudentRepository extends IRepository<Student, Collection<Student>, Integer> {
+public interface ICourse {
+	long getCourseId();
 
-	Collection<Student> getEntolledStudents(Course c);
+	void setCourseId(long courseId);
+
+	String getName();
+
+	void setName(String name);
+
+	Set<Cliente> getStudents();
+
+	void setStudents(Set<Cliente> students);
 }
-*/

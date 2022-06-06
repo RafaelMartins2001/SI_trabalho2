@@ -1,29 +1,29 @@
 package isel.sisinf.grp05.modelTests;
 
 import isel.sisinf.grp05.model.Alarms;
-import isel.sisinf.grp05.model.Cliente;
 import isel.sisinf.grp05.model.RegistoNP;
-import isel.sisinf.grp05.model.RegistoP;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
+import isel.sisinf.grp05.model.Cliente.Cliente;
 import org.junit.Test;
 
 import java.util.Date;
 import java.util.List;
 
 public class ClienteTest {
-   @Test
-    public void newClient(){
-       EntityManagerFactory emf = Persistence.createEntityManagerFactory("g05");
-       EntityManager em = emf.createEntityManager();
-       try
-       {
-           System.out.println("--# CREATE Cliente");
-           em.getTransaction().begin();
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("g05");
+    EntityManager em = emf.createEntityManager();
 
-           Cliente c = new Cliente();
+    @Test
+    public void newClient(){
+        try {
+            System.out.println("--# CREATE Cliente");
+            em.getTransaction().begin();
+
+            Cliente c = new Cliente();
+
 
            c.setNif(555555599);
            c.setNome("rui silva");
@@ -31,14 +31,15 @@ public class ClienteTest {
            c.setTelefone(916726354);
            c.setEstado("Activo");
 
-           em.persist(c);
-           em.getTransaction().commit();
+            em.persist(c);
+            em.getTransaction().commit();
+        }
+        finally {
+            em.close();
+            emf.close();
+        }
+    }
 
-        }finally {
-           em.close();
-           emf.close();
-       }
-   }
     @Test
     public void deleteCParticularFromSQL() {
         Integer nif = 555555599;
@@ -183,39 +184,6 @@ public class ClienteTest {
             emf.close();
         }
     }
-
-    @Test
-    public void Alarms(){
-
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("g05");
-        EntityManager em = emf.createEntityManager();
-
-        try {
-            System.out.println("Alarms");
-
-            em.getTransaction().begin();
-
-            Query query = em.createNativeQuery("select * from alarms", Alarms.class);
-            List<Alarms> alarms =  query.getResultList();
-            for(Alarms x: alarms){
-                System.out.print(x.getNomeCondutor() + " | ");
-                System.out.print(x.getMatricula() + " | ");
-                System.out.print(x.getData() + " | ");
-                System.out.print(x.getLatitude() + " | ");
-                System.out.print(x.getLongitude());
-                System.out.print("\n\n\n");
-            }
-            em.getTransaction().commit();
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            throw e;
-        } finally {
-            em.close();
-            emf.close();
-        }
-    }
-
 
     @Test
     public void Alarms(){

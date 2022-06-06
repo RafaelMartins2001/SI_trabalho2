@@ -1,5 +1,6 @@
-package isel.sisinf.grp05.model;
+package isel.sisinf.grp05.model.alarms;
 
+import isel.sisinf.grp05.model.alarme.IAlarme;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -9,7 +10,7 @@ import java.util.Date;
     @Table(name="Alarms")
     @NamedQuery(name="Alarms.findAll", query="SELECT a FROM Alarme a")
 
-    public class Alarms {
+    public class Alarms implements IAlarms {
 
         @Id
         @Column(name="matricula")

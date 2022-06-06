@@ -1,14 +1,13 @@
 package isel.sisinf.grp05.modelTests;
 
-import isel.sisinf.grp05.model.Alarms;
-import isel.sisinf.grp05.model.RegistoNP;
+import isel.sisinf.grp05.model.alarms.Alarms;
+import isel.sisinf.grp05.model.registoNP.RegistoNP;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
 import isel.sisinf.grp05.model.Cliente.Cliente;
 import org.junit.Test;
-
 import java.util.Date;
 import java.util.List;
 

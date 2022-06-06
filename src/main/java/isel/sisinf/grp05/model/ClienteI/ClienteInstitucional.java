@@ -1,4 +1,4 @@
-package isel.sisinf.grp05.model;
+package isel.sisinf.grp05.model.ClienteI;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 @Table(name="ClienteInstitucional")
 @NamedQuery(name="ClienteInstitucional.findAll", query="SELECT c FROM ClienteInstitucional c")
 
-public class ClienteInstitucional {
+public class ClienteInstitucional implements IClienteInstitucional{
 
     @Id
     @Column(name = "nif")

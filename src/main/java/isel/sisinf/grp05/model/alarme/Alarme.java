@@ -1,4 +1,4 @@
-package isel.sisinf.grp05.model;
+package isel.sisinf.grp05.model.alarme;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 @Table(name="Alarme")
 @NamedQuery(name="Alarme.findAll", query="SELECT a FROM Alarme a")
 
-public class Alarme {
+public class Alarme implements IAlarme {
 
     @Id
     @Column(name="id")

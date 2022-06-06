@@ -1,13 +1,12 @@
-package isel.sisinf.grp05.model;
+package isel.sisinf.grp05.model.clienteP;
 
-import java.io.Serializable;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name="ClienteParticular")
 @NamedQuery(name="ClienteParticular.findAll", query="SELECT c FROM ClienteParticular c")
 
-public class ClienteParticular {
+public class ClienteP {
 
     @Id
     @Column(name="nif")
@@ -17,7 +16,7 @@ public class ClienteParticular {
     @Column(name="cc")
     private int cc;
 
-    public ClienteParticular() {}
+    public ClienteP() {}
 
     public int getNif() {
         return this.nif;

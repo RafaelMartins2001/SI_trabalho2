@@ -1,4 +1,4 @@
-package isel.sisinf.grp05.model;
+package isel.sisinf.grp05.model.gps;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -29,43 +29,43 @@ public class GPS {
 
     public GPS() {}
 
-    public int getid() {
+    public int getId() {
         return this.id;
     }
 
-    public void setid(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Date getmarcaTemporal() {
+    public Date getMarcaTemporal() {
         return this.marcaTemporal;
     }
 
-    public void setmarcaTemporal(Date marcaTemporal) {
+    public void setMarcaTemporal(Date marcaTemporal) {
         this.marcaTemporal = marcaTemporal;
     }
 
-    public int getlongitude() {
+    public int getLongitude() {
         return this.longitude;
     }
 
-    public void setlongitude(int longitude) {
+    public void setLongitude(int longitude) {
         this.longitude = longitude;
     }
 
-    public int getlatitude() {
+    public int getLatitude() {
         return this.latitude;
     }
 
-    public void setlatitude(int latitude) {
+    public void setLatitude(int latitude) {
         this.latitude = latitude;
     }
 
-    public String getestada() {
+    public String getEstado() {
         return this.estada;
     }
 
-    public void setestada(String estada) {
+    public void setEstado(String estada) {
         this.estada = estada;
     }
 

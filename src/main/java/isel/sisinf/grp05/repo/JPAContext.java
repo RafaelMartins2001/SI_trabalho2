@@ -26,7 +26,7 @@ package isel.sisinf.grp05.repo;
 import java.util.Collection;
 import java.util.List;
 
-import isel.sisinf.grp05.model.Cliente.Cliente;
+import isel.sisinf.grp05.model.cliente.Cliente;
 import isel.sisinf.grp05.model.Course.Course;
 import jakarta.persistence.*;
 

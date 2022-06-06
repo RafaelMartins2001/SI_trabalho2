@@ -25,7 +25,7 @@ package isel.sisinf.grp05.model.Course;
 import java.util.Set;
 import java.util.Objects;
 
-import isel.sisinf.grp05.model.Cliente.Cliente;
+import isel.sisinf.grp05.model.cliente.Cliente;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

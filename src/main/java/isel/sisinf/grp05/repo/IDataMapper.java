@@ -24,11 +24,8 @@ SOFTWARE.
 package isel.sisinf.grp05.repo;
 
 public interface IDataMapper<T, Tid> {
-    T Create(T entity);
-    T Update(T entity);
-    T Delete(T entity);
-}
-
-/*
+    T create(T entity);
     T read(Tid id);
-*/
+    T update(T entity);
+    T delete(T entity);
+}

@@ -5,10 +5,7 @@ import jakarta.persistence.*;
 @Table(name="cliente")
 @NamedQuery(name="Cliente.findAll", query="SELECT c FROM Cliente c")
 
-public class Cliente {
-
-    private static final long serialVersionUID = 1L;
-
+public class Cliente implements ICliente {
     @Id
     @Column(name="nif")
     private int nif;
@@ -22,7 +19,7 @@ public class Cliente {
     @Column(name="telefone")
     private int telefone;
 
-    @Column(name="referencia")
+    @ManyToOne(targetEntity = Cliente.class)
     private Integer referencia;
 
     @Column(name="estado")
@@ -30,7 +27,6 @@ public class Cliente {
 
     public Cliente(){}
 
-    //@Id
     public int getNif() {
         return this.nif;
     }
@@ -75,8 +71,5 @@ public class Cliente {
         return this.estado;
     }
 
-    public void setEstado(String estado){
-        this.estado = estado;
-    }
-
+    public void setEstado(String estado){ this.estado = estado; }
 }

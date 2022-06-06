@@ -7,10 +7,7 @@ public class App {
         try(JPAContext ctx= new JPAContext()) {
             ctx.beginTransaction();
 
-
             System.out.println(ctx.rand_fx(1));
-
-            ctx.fromCountry(1).forEach(c ->System.out.println(c));
 
             ctx.commit();
         }
@@ -19,6 +16,5 @@ public class App {
             System.out.println(e.getMessage());
             throw e;
         }
-
     }
 }

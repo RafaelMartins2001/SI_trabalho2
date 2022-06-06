@@ -1,22 +1,17 @@
-package isel.sisinf.grp05.model;
+package isel.sisinf.grp05.model.zv;
 
 import java.io.Serializable;
-import java.util.Date;
-
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="RegistoP")
-@NamedQuery(name="RegistoP.findAll", query="SELECT r FROM RegistoP r")
+@Table(name="ZV")
+@NamedQuery(name="ZV.findAll", query="SELECT z FROM ZV z")
 
-public class RegistoP {
+public class ZV implements IZV {
 
     @Id
     @Column(name="id")
     private int id;
-
-    @Column(name="data")
-    private Date data;
 
     @Column(name="longitude")
     private int longitude;
@@ -24,10 +19,10 @@ public class RegistoP {
     @Column(name="latitude")
     private int latitude;
 
-    @Column(name="idGps")
-    private int idGps;
+    @Column(name="raio")
+    private int raio;
 
-    public RegistoP() {}
+    public ZV() {}
 
     public int getid() {
         return this.id;
@@ -35,14 +30,6 @@ public class RegistoP {
 
     public void setid(int id) {
         this.id = id;
-    }
-
-    public Date getdata() {
-        return this.data;
-    }
-
-    public void setdata(Date data) {
-        this.data = data;
     }
 
     public int getlongitude() {
@@ -61,12 +48,12 @@ public class RegistoP {
         this.latitude = latitude;
     }
 
-    public int getidGps() {
-        return this.idGps;
+    public int getraio() {
+        return this.raio;
     }
 
-    public void setidGps(int idGps) {
-        this.idGps = idGps;
+    public void setraio(int raio) {
+        this.raio = raio;
     }
 
 }

@@ -1,4 +1,4 @@
-package isel.sisinf.grp05.model;
+package isel.sisinf.grp05.model.veiculo;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 @Table(name="Veiculo")
 @NamedQuery(name="Veiculo.findAll", query="SELECT v FROM Veiculo v")
 
-public class Veiculo {
+public class Veiculo implements IVeiculo {
 
     @Id
     @Column(name="matricula")

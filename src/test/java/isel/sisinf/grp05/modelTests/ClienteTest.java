@@ -1,6 +1,7 @@
 package isel.sisinf.grp05.modelTests;
 
 import isel.sisinf.grp05.model.alarms.Alarms;
+import isel.sisinf.grp05.model.cliente.Cliente;
 import isel.sisinf.grp05.model.registoNP.RegistoNP;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

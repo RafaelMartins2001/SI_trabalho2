@@ -5,9 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name="ClienteParticular")
 @NamedQuery(name="ClienteParticular.findAll", query="SELECT c FROM ClienteParticular c")
-
-public class ClienteP {
-
+public class ClienteParticular {
     @Id
     @Column(name="nif")
     private int nif;
@@ -16,7 +14,7 @@ public class ClienteP {
     @Column(name="cc")
     private int cc;
 
-    public ClienteP() {}
+    public ClienteParticular() {}
 
     public int getNif() {
         return this.nif;

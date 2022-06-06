@@ -6,7 +6,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
-import isel.sisinf.grp05.model.Cliente.Cliente;
 import org.junit.Test;
 import java.util.Date;
 import java.util.List;
@@ -14,7 +13,7 @@ import java.util.List;
 public class ClienteTest {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("g05");
     EntityManager em = emf.createEntityManager();
-
+/*
     @Test
     public void newClient(){
         try {
@@ -183,7 +182,7 @@ public class ClienteTest {
             emf.close();
         }
     }
-
+*/
     @Test
     public void Alarms(){
 

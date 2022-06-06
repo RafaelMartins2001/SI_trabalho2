@@ -27,7 +27,6 @@ import java.util.Collection;
 import java.util.List;
 
 import isel.sisinf.grp05.model.cliente.Cliente;
-import isel.sisinf.grp05.model.Course.Course;
 import jakarta.persistence.*;
 
 public class JPAContext implements IContext{
@@ -37,7 +36,6 @@ public class JPAContext implements IContext{
     private EntityTransaction _tx;
     private int _txcount;
 
-    private CourseRepository _courseRepository;
 	private ClienteRepository _clienteRepository;
     
     public List helperQueryImpl(String jpql, Object... params) {
@@ -49,50 +47,17 @@ public class JPAContext implements IContext{
 		return q.getResultList();
     }
 
-    protected class CourseRepository implements IRepository<Course, Collection<Course>, Long> {
-		@Override
-		public Course findByKey(Long key) {
-			return _em.createNamedQuery("Course.findByKey", Course.class)
-					 .setParameter("key", key)
-	            	  .getSingleResult();
-		}
-
-		@SuppressWarnings("unchecked")
-		@Override
-		public Collection<Course> find(String jpql, Object... params) {
-			return helperQueryImpl( jpql, params);
-		}
-
-		@Override
-		public Course create(Course entity) {
-			return null;
-		}
-
-		@Override
-		public Course read(Long id) {
-			return null;
-		}
-
-		@Override
-		public Course update(Course entity) {
-			return null;
-		}
-
-		@Override
-		public Course delete(Course entity) {
-			return null;
-		}
-	}
-
 	protected class ClienteRepository implements IRepository<Cliente, Collection<Cliente>, Integer> {
 		@Override
 		public Cliente findByKey(Integer key) {
-			return null;
+			return _em.createNamedQuery("Course.findByKey", Cliente.class)
+					.setParameter("key", key)
+					.getSingleResult();
 		}
 
 		@Override
 		public Collection<Cliente> find(String jpql, Object... params) {
-			return null;
+			return helperQueryImpl( jpql, params);
 		}
 
 		@Override
@@ -175,7 +140,7 @@ public class JPAContext implements IContext{
 	
 		this._emf = Persistence.createEntityManagerFactory(persistentCtx);
 		this._em = _emf.createEntityManager();
-		this._courseRepository = new CourseRepository();
+
 		this._clienteRepository = new ClienteRepository();
 	}
 

@@ -1,6 +1,6 @@
 package isel.sisinf.grp05.model.clienteP;
 
-public interface IClienteP {
+public interface IClienteParticular {
     int getNif();
     void setNif(int nif);
 

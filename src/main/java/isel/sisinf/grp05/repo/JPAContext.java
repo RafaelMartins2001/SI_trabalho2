@@ -26,6 +26,7 @@ package isel.sisinf.grp05.repo;
 import java.util.Collection;
 import java.util.List;
 
+import isel.sisinf.grp05.model.Cliente.Cliente;
 import isel.sisinf.grp05.model.Course.Course;
 import jakarta.persistence.*;
 
@@ -36,10 +37,10 @@ public class JPAContext implements IContext{
     private EntityTransaction _tx;
     private int _txcount;
 
-    private ICourseRepository _courseRepository;
+    private CourseRepository _courseRepository;
+	private ClienteRepository _clienteRepository;
     
-    
-    protected List helperQueryImpl(String jpql, Object... params) {
+    public List helperQueryImpl(String jpql, Object... params) {
     	Query q = _em.createQuery(jpql);
 
 		for(int i = 0; i < params.length; ++i)
@@ -51,7 +52,7 @@ public class JPAContext implements IContext{
     protected class CourseRepository implements IRepository<Course, Collection<Course>, Long> {
 		@Override
 		public Course findByKey(Long key) {
-			return _em.createNamedQuery("Course.findByKey",Course.class)
+			return _em.createNamedQuery("Course.findByKey", Course.class)
 					 .setParameter("key", key)
 	            	  .getSingleResult();
 		}
@@ -62,7 +63,54 @@ public class JPAContext implements IContext{
 			return helperQueryImpl( jpql, params);
 		}
     }
-    
+
+	protected class ClienteRepository implements IRepository<Cliente, Collection<Cliente>, Integer> {
+		@Override
+		public Cliente findByKey(Integer key) {
+			return null;
+		}
+
+		@Override
+		public Collection<Cliente> find(String jpql, Object... params) {
+			return null;
+		}
+
+		@Override
+		public Cliente create(Cliente entity) {
+			return null;
+		}
+
+		@Override
+		public Cliente read(Integer id) {
+			return null;
+		}
+
+		@Override
+		public Cliente update(Cliente entity) {
+			return null;
+		}
+
+		@Override
+		public Cliente delete(Cliente entity) {
+			return null;
+		}
+	}
+
+	@Override
+	public void notifyInsert(Object e) {
+
+	}
+
+	@Override
+	public void notifyUpdate(Object e) {
+
+	}
+
+	@Override
+	public void notifyDelete(Object e) {
+
+	}
+
 	@Override
 	public void beginTransaction() {
 		if(_tx == null) {
@@ -79,6 +127,16 @@ public class JPAContext implements IContext{
 		if(_txcount==0 && _tx != null)
 		{
 			_tx.commit();
+			_tx = null;
+		}
+	}
+
+	@Override
+	public void rollback() {
+		--_txcount;
+		if(_txcount==0 && _tx != null)
+		{
+			_tx.rollback();
 			_tx = null;
 		}
 	}
@@ -106,11 +164,6 @@ public class JPAContext implements IContext{
         	_tx.rollback();
         _em.close();
         _emf.close();
-	}
-
-	@Override
-	public ICourseRepository getCourses() {
-		return _courseRepository;
 	}
 
 	//Example using a scalar function

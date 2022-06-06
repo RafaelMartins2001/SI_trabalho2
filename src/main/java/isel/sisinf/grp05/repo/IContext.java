@@ -25,9 +25,14 @@ package isel.sisinf.grp05.repo;
 
 
 public interface IContext extends AutoCloseable {
-	 void beginTransaction();
-	 void commit();
-	 void flush();
+	void notifyInsert(Object e);
+	void notifyUpdate(Object e);
+	void notifyDelete(Object e);
+
+	void beginTransaction();
+	void commit();
+	void rollback();
+	void flush();
 
 	 ICourseRepository getCourses();
 }

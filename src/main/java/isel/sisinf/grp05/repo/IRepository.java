@@ -23,7 +23,7 @@ SOFTWARE.
 */
 package isel.sisinf.grp05.repo;
 
-public interface IRepository<T,TCol,TK> {
+public interface IRepository<T,TCol,TK> extends IDataMapper<T, TK> {
 	T findByKey(TK key);
 	TCol find(String jpql, Object... params);
 }

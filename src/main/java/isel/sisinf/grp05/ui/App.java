@@ -1,4 +1,4 @@
-package isel.sisinf.grp05.model.ui;
+package isel.sisinf.grp05.ui;
 
 import isel.sisinf.grp05.repo.JPAContext;
 

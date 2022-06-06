@@ -1,6 +1,5 @@
-package isel.sisinf.grp05.model;
+package isel.sisinf.grp05.model.Cliente;
 
-import java.io.Serializable;
 import jakarta.persistence.*;
 @Entity
 @Table(name="cliente")
@@ -24,14 +23,12 @@ public class Cliente {
     private int telefone;
 
     @Column(name="referencia")
-    private int referencia;
+    private Integer referencia;
 
     @Column(name="estado")
     private String estado;
 
-    public Cliente() {
-    }
-
+    public Cliente(){}
 
     //@Id
     public int getNif() {
@@ -70,7 +67,7 @@ public class Cliente {
         return this.referencia;
     }
 
-    public void setReferencia(int referencia){
+    public void setReferencia(Integer referencia){
         this.referencia = referencia;
     }
 

@@ -31,7 +31,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
-/*
+
 public class JPAContext implements IContext{
 
 	
@@ -153,8 +153,6 @@ public class JPAContext implements IContext{
 	
 		this._emf = Persistence.createEntityManagerFactory(persistentCtx);
 		this._em = _emf.createEntityManager();
-		this._countryRepository = new CountryRepository();
-		this._studentRepository = new StudentRepository();
 		this._courseRepository = new CourseRepository();
 	}
 
@@ -183,5 +181,4 @@ public class JPAContext implements IContext{
 	public ICourseRepository getCourses() {
 		return _courseRepository;
 	}
-
-}*/
+}

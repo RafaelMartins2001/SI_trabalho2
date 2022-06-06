@@ -62,7 +62,27 @@ public class JPAContext implements IContext{
 		public Collection<Course> find(String jpql, Object... params) {
 			return helperQueryImpl( jpql, params);
 		}
-    }
+
+		@Override
+		public Course create(Course entity) {
+			return null;
+		}
+
+		@Override
+		public Course read(Long id) {
+			return null;
+		}
+
+		@Override
+		public Course update(Course entity) {
+			return null;
+		}
+
+		@Override
+		public Course delete(Course entity) {
+			return null;
+		}
+	}
 
 	protected class ClienteRepository implements IRepository<Cliente, Collection<Cliente>, Integer> {
 		@Override
@@ -156,6 +176,7 @@ public class JPAContext implements IContext{
 		this._emf = Persistence.createEntityManagerFactory(persistentCtx);
 		this._em = _emf.createEntityManager();
 		this._courseRepository = new CourseRepository();
+		this._clienteRepository = new ClienteRepository();
 	}
 
 	@Override
@@ -176,7 +197,7 @@ public class JPAContext implements IContext{
 
 		return (java.math.BigDecimal)namedrand_fx.getOutputParameterValue(2);
 	}
-
+/*
 	public Collection<Student> fromCountry(int country) {
 		StoredProcedureQuery q = _em.createNamedStoredProcedureQuery("namedfromCountry");
 		q.setParameter(1, country);
@@ -200,4 +221,6 @@ public class JPAContext implements IContext{
 	public List<Student> fromCountry2(int country) {
 		return _em.createNamedStoredProcedureQuery("altnamedfromCountry").setParameter(1, country).getResultList();
 	}
+
+ */
 }

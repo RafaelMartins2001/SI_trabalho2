@@ -1,4 +1,4 @@
-package isel.sisinf.grp05.model.Cliente;
+package isel.sisinf.grp05.model.cliente;
 
 import jakarta.persistence.*;
 @Entity

@@ -1,6 +1,6 @@
 package isel.sisinf.grp05.modelTests;
 
-import isel.sisinf.grp05.model.Cliente.Cliente;
+import isel.sisinf.grp05.model.cliente.Cliente;
 import jakarta.persistence.*;
 import org.junit.Test;
 

@@ -1,16 +1,15 @@
 package isel.sisinf.grp05.model.registoP;
 
-import java.io.Serializable;
-import java.util.Date;
-
+import isel.sisinf.grp05.model.registoP.IRegistoP;
 import jakarta.persistence.*;
+
+import java.util.Date;
 
 @Entity
 @Table(name="RegistoP")
 @NamedQuery(name="RegistoP.findAll", query="SELECT r FROM RegistoP r")
 
-public class RegistoP {
-
+public class RegistoP implements IRegistoP {
     @Id
     @Column(name="id")
     private int id;

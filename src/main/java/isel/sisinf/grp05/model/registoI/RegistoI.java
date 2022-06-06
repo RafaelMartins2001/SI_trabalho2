@@ -1,6 +1,5 @@
 package isel.sisinf.grp05.model.registoI;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import jakarta.persistence.*;
@@ -9,8 +8,7 @@ import jakarta.persistence.*;
 @Table(name="RegistoI")
 @NamedQuery(name="RegistoI.findAll", query="SELECT r FROM RegistoI r")
 
-public class RegistoI {
-
+public class RegistoI implements IRegistoI{
     @Id
     @Column(name="id")
     private int id;
@@ -29,43 +27,43 @@ public class RegistoI {
 
     public RegistoI() {}
 
-    public int getid() {
+    public int getId() {
         return this.id;
     }
 
-    public void setid(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Date getdata() {
+    public Date getData() {
         return this.data;
     }
 
-    public void setdata(Date data) {
+    public void setData(Date data) {
         this.data = data;
     }
 
-    public int getlongitude() {
+    public int getLongitude() {
         return this.longitude;
     }
 
-    public void setlongitude(int longitude) {
+    public void setLongitude(int longitude) {
         this.longitude = longitude;
     }
 
-    public int getlatitude() {
+    public int getLatitude() {
         return this.latitude;
     }
 
-    public void setlatitude(int latitude) {
+    public void setLatitude(int latitude) {
         this.latitude = latitude;
     }
 
-    public int getidGps() {
+    public int getIdGps() {
         return this.idGps;
     }
 
-    public void setidGps(int idGps) {
+    public void setIdGps(int idGps) {
         this.idGps = idGps;
     }
 

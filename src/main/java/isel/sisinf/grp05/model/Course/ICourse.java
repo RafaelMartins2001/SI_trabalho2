@@ -23,7 +23,7 @@ SOFTWARE.
 */
 package isel.sisinf.grp05.model.Course;
 
-import isel.sisinf.grp05.model.Cliente.Cliente;
+import isel.sisinf.grp05.model.cliente.Cliente;
 
 import java.util.Set;
 

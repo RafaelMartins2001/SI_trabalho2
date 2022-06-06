@@ -1,4 +1,4 @@
-package isel.sisinf.grp05.model;
+package isel.sisinf.grp05.model.grupoZV;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
@@ -6,9 +6,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name="GrupoZV")
 @NamedQuery(name="GrupoZV.findAll", query="SELECT g FROM GrupoZV g")
-
-public class GrupoZV {
-
+public class GrupoZV implements IGrupoZV {
     @Id
     @Column(name="id")
     private int id;
@@ -21,28 +19,27 @@ public class GrupoZV {
 
     public GrupoZV() {}
 
-    public int getid() {
+    public int getId() {
         return this.id;
     }
 
-    public void setid(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public int getzv() {
+    public int getZV() {
         return this.zv;
     }
 
-    public void setzv(int zv) {
+    public void setZV(int zv) {
         this.zv = zv;
     }
 
-    public String getmatricula() {
+    public String getMatricula() {
         return this.matricula;
     }
 
-    public void setmatricula(String matricula) {
+    public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
-
 }

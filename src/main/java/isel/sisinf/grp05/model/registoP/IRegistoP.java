@@ -1,15 +1,14 @@
-package isel.sisinf.grp05.model;
-
-import java.io.Serializable;
-import java.util.Date;
+package isel.sisinf.grp05.model.registoP;
 
 import jakarta.persistence.*;
 
-@Entity
-@Table(name="RegistoNP")
-@NamedQuery(name="RegistoNP.findAll", query="SELECT r FROM RegistoNP r")
+import java.util.Date;
 
-public class RegistoNP {
+@Entity
+@Table(name="RegistoP")
+@NamedQuery(name="RegistoP.findAll", query="SELECT r FROM RegistoP r")
+
+public class IRegistoP {
 
     @Id
     @Column(name="id")
@@ -27,8 +26,7 @@ public class RegistoNP {
     @Column(name="idGps")
     private int idGps;
 
-    public RegistoNP() {}
-
+    public IRegistoP() {}
 
     public int getid() {
         return this.id;

@@ -21,16 +21,22 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package isel.sisinf.grp05.repo;
+package isel.sisinf.grp05.model.Course;
 
+import isel.sisinf.grp05.model.Cliente.Cliente;
 
-public interface IContext extends AutoCloseable {
-	void notifyInsert(Object e);
-	void notifyUpdate(Object e);
-	void notifyDelete(Object e);
+import java.util.Set;
 
-	void beginTransaction();
-	void commit();
-	void rollback();
-	void flush();
+public interface ICourse {
+	long getCourseId();
+
+	void setCourseId(long courseId);
+
+	String getName();
+
+	void setName(String name);
+
+	Set<Cliente> getStudents();
+
+	void setStudents(Set<Cliente> students);
 }

@@ -10,10 +10,11 @@ import jakarta.persistence.Query;
 import org.junit.Test;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class ClienteTest {
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("g05");
-    EntityManager em = emf.createEntityManager();
+    //EntityManagerFactory emf = Persistence.createEntityManagerFactory("g05");
+    //EntityManager em = emf.createEntityManager();
 /*
     @Test
     public void newClient(){
@@ -184,6 +185,58 @@ public class ClienteTest {
         }
     }
 */
+    @Test
+    public void printer(){
+        String[] s = {"e", "f", "g", "h", "i", "j", "k", "l"};
+
+        for (int i = 0; i < s.length; i++) {
+            System.out.println(
+                    "private static void test_" + s[i] + "1() {\n" +
+                "\tprintln(\"Initializing Test " + s[i].toUpperCase() + ".1: ***\");\n" +
+                "\tprintln(\"Test " + s[i].toUpperCase() + ".1 was successful / unsuccessful\");\n" +
+                "}"
+            );
+        }
+    }
+
+    @Test
+    public void printer2(){
+        String[] s = {"e", "f", "g", "h", "i", "j", "k", "l"};
+
+        for (int i = 0; i < s.length; i++) {
+            System.out.println(
+                    "case test_" + s[i] + "1: test_" + s[i] + "1(); break;\n"
+            );
+        }
+    }
+
+
+    @Test
+    public void printer3(){
+        String[] s = {"create_client", "read_client", "update_client", "delete_client", "create_vehicle", "read_vehicle", "update_vehicle", "delete_vehicle"};
+
+        for (int i = 0; i < s.length; i++) {
+            System.out.println(
+                    "private static void " + s[i] + "() {\n" +
+                            "\tprintln(\"Initializing " + s[i] + ": ***\");\n" +
+                            "\tprintln(\"" + s[i] + " concluded\");\n" +
+                            "}"
+            );
+        }
+    }
+
+    @Test
+    public void printer4(){
+        String[] s = {"create_client", "read_client", "update_client", "delete_client", "create_vehicle", "read_vehicle", "update_vehicle", "delete_vehicle"};
+
+        for (int i = 0; i < s.length; i++) {
+            System.out.println(
+                    "case " + s[i] + ": " + s[i] + "(); break;\n"
+            );
+        }
+    }
+
+
     @Test
     public void Alarms(){
 

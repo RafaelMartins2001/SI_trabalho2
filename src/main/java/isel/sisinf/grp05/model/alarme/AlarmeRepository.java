@@ -21,7 +21,7 @@ public class AlarmeRepository implements IRepository<Cliente, Collection<Cliente
 
         @Override
         public Cliente findByKey(Integer key) {
-            return _em.createNamedQuery("Cliente.findByKey", Cliente.class)
+            return _em.createNamedQuery("Alarme.findByKey", Cliente.class)
                     .setParameter("key", key)
                     .getSingleResult();
         }

@@ -58,8 +58,9 @@ public class App {
             "\t\""+ test_k1 + "\" -> Runs test K.1.\n" +
             "\t\""+ test_l1 + "\" -> Runs test L.1.\n";
 
+    static Scanner s = new Scanner(System.in);
     public static void main( String[] args ) {
-        Scanner s = new Scanner(System.in);
+
 
         println("Please enter a command.");
         String input = s.nextLine();
@@ -126,7 +127,9 @@ public class App {
     }
     private static void read_client() {
         println("Initializing read_client: ***");
-        Cliente c = jpa._clienteRepository.findByKey(555555599);
+        println("Please, enter nif.");
+        Integer nif = s.nextInt();
+        Cliente c = jpa._clienteRepository.findByKey(nif);
         System.out.print(c.getNif() + " | ");
         System.out.print(c.getEstado() + " | ");
         System.out.print(c.getNome() + " | ");

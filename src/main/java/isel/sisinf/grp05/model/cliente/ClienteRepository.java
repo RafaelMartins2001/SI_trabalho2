@@ -37,30 +37,25 @@ public class ClienteRepository implements IRepository<Cliente, Collection<Client
             return c;
         }
 
-    @Override
-    public List<Cliente> findAll() throws Exception {
-        return _em.createNamedQuery("Cliente.getAll", Cliente.class)
-                .getResultList();
-    }
+        @Override
+        public List<Cliente> findAll() throws Exception {
+            return _em.createNamedQuery("Cliente.getAll", Cliente.class)
+                    .getResultList();
+        }
         @Override
         public Cliente create(Cliente entity) {
             try {
                 _em.getTransaction().begin();
-
-                Cliente c = new Cliente();
-                c.setNif(555555599);
-                c.setNome("rui silva");
-                c.setMorada("Rua Numero 1");
-                c.setTelefone(916726354);
-                c.setEstado("Activo");
-
-                _em.persist(c);
+                _em.persist(entity);
                 _em.getTransaction().commit();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                throw e;
             }
             finally {
                 _em.close();
             }
-            return null;
+            return entity;
         }
 
         @Override

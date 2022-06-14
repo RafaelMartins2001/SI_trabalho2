@@ -23,7 +23,9 @@ SOFTWARE.
 */
 package isel.sisinf.grp05.repo;
 
+import java.util.List;
+
 public interface IRepository<T,TCol,TK> extends IDataMapper<T, TK> {
-	T findByKey(TK key);
-	TCol find(String jpql, Object... params);
+	T findByKey(TK key) throws Exception;
+	List<T> getAll() throws Exception;
 }

@@ -13,9 +13,9 @@ import java.util.List;
 import java.util.Locale;
 
 public class ClienteTest {
-    //EntityManagerFactory emf = Persistence.createEntityManagerFactory("g05");
-    //EntityManager em = emf.createEntityManager();
-/*
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("g05");
+    EntityManager em = emf.createEntityManager();
+
     @Test
     public void newClient(){
         try {
@@ -184,7 +184,7 @@ public class ClienteTest {
             emf.close();
         }
     }
-*/
+
     @Test
     public void printer(){
         String[] s = {"e", "f", "g", "h", "i", "j", "k", "l"};

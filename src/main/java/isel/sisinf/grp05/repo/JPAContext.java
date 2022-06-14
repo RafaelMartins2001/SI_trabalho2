@@ -26,10 +26,23 @@ package isel.sisinf.grp05.repo;
 import java.util.Collection;
 import java.util.List;
 
+import isel.sisinf.grp05.model.ClienteI.ClienteIRepository;
+import isel.sisinf.grp05.model.alarme.AlarmeRepository;
+import isel.sisinf.grp05.model.alarms.AlarmsRepository;
 import isel.sisinf.grp05.model.cliente.Cliente;
+import isel.sisinf.grp05.model.cliente.ClienteRepository;
+import isel.sisinf.grp05.model.clienteP.ClientePRepository;
+import isel.sisinf.grp05.model.gps.GpsRepository;
+import isel.sisinf.grp05.model.grupoZV.GrupoZVRepository;
+import isel.sisinf.grp05.model.registoI.RegistoIRepository;
+import isel.sisinf.grp05.model.registoNP.RegistoNPRepository;
+import isel.sisinf.grp05.model.registoP.RegistoPRepository;
+import isel.sisinf.grp05.model.veiculo.VeiculoRepository;
+import isel.sisinf.grp05.model.zv.ZVRepository;
 import jakarta.persistence.*;
 
 /*
+
 * TODO
 *   criar um repositorio por classe
 *   implementar os metodos de cada repositorio
@@ -44,6 +57,17 @@ public class JPAContext implements IContext{
     private int _txcount;
 
 	private ClienteRepository _clienteRepository;
+	private ClienteIRepository _clienteIRepository;
+	private AlarmeRepository _alarmeRepository;
+	private AlarmsRepository _alarmsRepository;
+	private ClientePRepository _clientePRepository;
+	private GpsRepository _gpsRepository;
+	private GrupoZVRepository _grupoZVRepository;
+	private RegistoIRepository _registoIRepository;
+	private RegistoNPRepository _registoNPRepository;
+	private RegistoPRepository _registoPRepository;
+	private VeiculoRepository _veiculoRepository;
+	private ZVRepository _zvRepository;
     
     public List helperQueryImpl(String jpql, Object... params) {
     	Query q = _em.createQuery(jpql);
@@ -53,40 +77,6 @@ public class JPAContext implements IContext{
 		
 		return q.getResultList();
     }
-
-	protected class ClienteRepository implements IRepository<Cliente, Collection<Cliente>, Integer> {
-		@Override
-		public Cliente findByKey(Integer key) {
-			return _em.createNamedQuery("Cliente.findByKey", Cliente.class)
-					.setParameter("key", key)
-					.getSingleResult();
-		}
-
-		@Override
-		public Collection<Cliente> find(String jpql, Object... params) {
-			return helperQueryImpl( jpql, params);
-		}
-
-		@Override
-		public Cliente create(Cliente entity) {
-			return null;
-		}
-
-		@Override
-		public Cliente read(Integer id) {
-			return null;
-		}
-
-		@Override
-		public Cliente update(Cliente entity) {
-			return null;
-		}
-
-		@Override
-		public Cliente delete(Cliente entity) {
-			return null;
-		}
-	}
 
 	@Override
 	public void notifyInsert(Object e) {
@@ -138,61 +128,34 @@ public class JPAContext implements IContext{
 		_em.flush();
 	}
 
+	@Override
+	public void close() throws Exception {
+		if(_tx != null)
+			_tx.rollback();
+		_em.close();
+		_emf.close();
+	}
+
 	public JPAContext() {
 		this("g05");
 	}
-	
+
 	public JPAContext(String persistentCtx) {
 		super();
-	
 		this._emf = Persistence.createEntityManagerFactory(persistentCtx);
 		this._em = _emf.createEntityManager();
 
-		this._clienteRepository = new ClienteRepository();
+		this._clienteRepository = new ClienteRepository(_em);
+		this._clienteIRepository = new ClienteIRepository(_em);
+		this._alarmeRepository = new AlarmeRepository(_em);
+		this._alarmsRepository = new AlarmsRepository(_em);
+		this._clientePRepository = new ClientePRepository(_em);
+		this._gpsRepository = new GpsRepository(_em);
+		this._grupoZVRepository = new GrupoZVRepository(_em);
+		this._registoIRepository = new RegistoIRepository(_em);
+		this._registoNPRepository = new RegistoNPRepository(_em);
+		this._registoPRepository = new RegistoPRepository(_em);
+		this._veiculoRepository = new VeiculoRepository(_em);
+		this._zvRepository = new ZVRepository(_em);
 	}
-
-	@Override
-	public void close() throws Exception {
-        if(_tx != null)
-        	_tx.rollback();
-        _em.close();
-        _emf.close();
-	}
-
-	//Example using a scalar function
-	public java.math.BigDecimal rand_fx(int seed) {
-
-		StoredProcedureQuery namedrand_fx =
-				_em.createNamedStoredProcedureQuery("namedrand_fx");
-		namedrand_fx.setParameter(1, seed);
-		namedrand_fx.execute();
-
-		return (java.math.BigDecimal)namedrand_fx.getOutputParameterValue(2);
-	}
-/*
-	public Collection<Student> fromCountry(int country) {
-		StoredProcedureQuery q = _em.createNamedStoredProcedureQuery("namedfromCountry");
-		q.setParameter(1, country);
-		q.execute();
-
-		List<Object[]> tmp = (List<Object[]>) q.getResultList();
-
-		Collection<Student> ret = new ArrayList<Student>();
-
-		for(Object[] s : tmp) {
-			Student st = new Student((Integer)s[0],(String)s[1],(java.util.Date)s[2],((String)s[3]).charAt(0),this.getCountries().findByKey((long)(Integer)s[4])  );
-			_em.merge(st);
-			ret.add( st);
-		}
-
-		return ret;
-
-	}
-
-
-	public List<Student> fromCountry2(int country) {
-		return _em.createNamedStoredProcedureQuery("altnamedfromCountry").setParameter(1, country).getResultList();
-	}
-
- */
 }

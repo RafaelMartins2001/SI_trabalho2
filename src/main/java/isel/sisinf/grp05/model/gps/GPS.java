@@ -2,7 +2,9 @@ package isel.sisinf.grp05.model.gps;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
+import isel.sisinf.grp05.model.veiculo.Veiculo;
 import jakarta.persistence.*;
 
 @Entity
@@ -26,6 +28,18 @@ public class GPS {
 
     @Column(name="estada")
     private String estada;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy="gps",fetch = FetchType.LAZY)
+    private Set<Veiculo> veiculos;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy="gps",fetch = FetchType.LAZY)
+    private Set<Veiculo> registosI;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy="gps",fetch = FetchType.LAZY)
+    private Set<Veiculo> registosNP;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy="gps",fetch = FetchType.LAZY)
+    private Set<Veiculo> registosP;
 
     public GPS() {}
 

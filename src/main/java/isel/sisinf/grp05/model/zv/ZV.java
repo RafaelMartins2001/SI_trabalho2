@@ -1,6 +1,8 @@
 package isel.sisinf.grp05.model.zv;
 
 import java.io.Serializable;
+import java.util.Set;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -21,6 +23,13 @@ public class ZV implements IZV {
 
     @Column(name="raio")
     private int raio;
+
+
+    @ManyToMany
+    @JoinTable(name="GrupoZV",
+            joinColumns=@JoinColumn(name="id"),
+            inverseJoinColumns=@JoinColumn(name="id"))
+    private Set<ZV> gruposZVs;
 
     public ZV() {}
 

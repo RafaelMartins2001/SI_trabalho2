@@ -1,35 +1,39 @@
 package isel.sisinf.grp05.model.clienteP;
 
+import isel.sisinf.grp05.model.cliente.Cliente;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name="ClienteParticular")
 @NamedQuery(name="ClienteParticular.findAll", query="SELECT c FROM ClienteParticular c")
-public class ClienteParticular {
+public class ClienteParticular implements IClienteParticular{
     @Id
-    @Column(name="nif")
-    private int nif;
-
+    @OneToOne(cascade=CascadeType.PERSIST)
+    @JoinColumn(name="nif")
+    @Column(name = "nif")
+    private Cliente clienteP;
 
     @Column(name="cc")
-    private int cc;
+    @OneToOne(cascade=CascadeType.PERSIST)
+    @JoinColumn(name="nif")
+    private Cliente clienteAssociado;
 
     public ClienteParticular() {}
 
-    public int getNif() {
-        return this.nif;
+    public Cliente getClienteP() {
+        return this.clienteP;
     }
 
-    public void setNif(int nif) {
-        this.nif = nif;
+    public void setClienteP(Cliente clienteP) {
+        this.clienteP = clienteP;
     }
 
-    public int getCC() {
-        return this.cc;
+    public Cliente getClienteAssociado() {
+        return this.clienteAssociado;
     }
 
-    public void setCC(int cc) {
-        this.cc = cc;
+    public void setClienteAssociado(Cliente clienteAssociado) {
+        this.clienteAssociado = clienteAssociado;
     }
 
 }

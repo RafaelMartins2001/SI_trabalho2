@@ -1,5 +1,7 @@
 package isel.sisinf.grp05.model.registoI;
 
+import isel.sisinf.grp05.model.gps.GPS;
+
 import java.util.Date;
 
 public interface IRegistoI {
@@ -15,7 +17,6 @@ public interface IRegistoI {
     int getLatitude();
     void setLatitude(int latitude);
 
-    int getIdGps();
-
-    void setIdGps(int idGps);
+    GPS getGps();
+    void setGps(GPS Gps);
 }

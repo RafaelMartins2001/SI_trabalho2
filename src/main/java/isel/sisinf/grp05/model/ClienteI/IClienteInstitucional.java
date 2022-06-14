@@ -1,10 +1,12 @@
 package isel.sisinf.grp05.model.ClienteI;
 
+import isel.sisinf.grp05.model.cliente.Cliente;
+
 public interface IClienteInstitucional {
 
-    int getnif();
+    Cliente getCliente();
 
-    void setnif(int nif);
+    void setCliente(Cliente cliente);
 
     String getnomeContrato();
 

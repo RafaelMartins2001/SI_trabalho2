@@ -1,17 +1,20 @@
 package isel.sisinf.grp05.model.alarme;
 
+import isel.sisinf.grp05.model.registoP.RegistoP;
+import isel.sisinf.grp05.model.veiculo.Veiculo;
+
 public interface IAlarme {
 
     int getid();
 
     void setid(int id);
 
-    int getidRegisto();
+    RegistoP getRegisto();
 
-    void setidRegisto(int idRegisto);
+    void setRegisto(RegistoP registoP);
 
-    int getmatricula();
+    Veiculo getVeiculo();
 
-    void setmatricula(int matricula);
+    void setVeiculo(Veiculo veiculo);
 
 }

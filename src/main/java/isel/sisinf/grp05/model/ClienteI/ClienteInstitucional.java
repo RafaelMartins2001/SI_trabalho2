@@ -1,6 +1,8 @@
 package isel.sisinf.grp05.model.ClienteI;
 
 import java.io.Serializable;
+
+import isel.sisinf.grp05.model.cliente.Cliente;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,8 +12,10 @@ import jakarta.persistence.*;
 public class ClienteInstitucional implements IClienteInstitucional{
 
     @Id
+    @OneToOne(cascade=CascadeType.PERSIST)
+    @JoinColumn(name="nif")
     @Column(name = "nif")
-    private int nif;
+    private Cliente cliente;
 
     @Id
     @Column(name = "nomeContrato")
@@ -20,12 +24,12 @@ public class ClienteInstitucional implements IClienteInstitucional{
     public ClienteInstitucional() {
     }
 
-    public int getnif() {
-        return this.nif;
+    public Cliente getCliente() {
+        return this.cliente;
     }
 
-    public void setnif(int nif) {
-        this.nif = nif;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public String getnomeContrato() {

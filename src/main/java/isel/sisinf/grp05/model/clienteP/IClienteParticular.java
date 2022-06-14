@@ -1,11 +1,13 @@
 package isel.sisinf.grp05.model.clienteP;
 
-public interface IClienteParticular {
-    int getNif();
-    void setNif(int nif);
+import isel.sisinf.grp05.model.cliente.Cliente;
 
-    int getCC();
-    void setCC(int cc);
+public interface IClienteParticular {
+    Cliente getClienteP();
+    void setClienteP(Cliente clienteP);
+
+    Cliente getClienteAssociado();
+    void setClienteAssociado(Cliente clienteAssociado);
 }
 
 

@@ -1,6 +1,13 @@
 package isel.sisinf.grp05.model.veiculo;
 
 import java.io.Serializable;
+import java.util.Set;
+
+import isel.sisinf.grp05.model.alarme.Alarme;
+import isel.sisinf.grp05.model.alarms.Alarms;
+import isel.sisinf.grp05.model.cliente.Cliente;
+import isel.sisinf.grp05.model.gps.GPS;
+import isel.sisinf.grp05.model.grupoZV.GrupoZV;
 import jakarta.persistence.*;
 
 @Entity
@@ -20,13 +27,24 @@ public class Veiculo implements IVeiculo {
     private String nomeCondutor;
 
     @Column(name="idGps")
-    private int idGps;
+    @ManyToOne(cascade=CascadeType.PERSIST,fetch = FetchType.LAZY)
+    @JoinColumn(name="Gps",referencedColumnName="id")
+    private GPS gps;
+
 
     @Column(name="proprieatario")
-    private int proprieatario;
+    @ManyToOne(cascade=CascadeType.PERSIST,fetch = FetchType.LAZY)
+    @JoinColumn(name="proprietario",referencedColumnName="nif")
+    private Cliente proprieatario;
 
     @Column(name="numAlarmes")
     private int numAlarmes;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy="matricula",fetch = FetchType.LAZY)
+    private Set<GrupoZV> gzvs;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy="veiculo",fetch = FetchType.LAZY)
+    private Set<Alarme> alarms;
 
     public Veiculo() {}
 
@@ -54,19 +72,19 @@ public class Veiculo implements IVeiculo {
         this.nomeCondutor = nomeCondutor;
     }
 
-    public int getidGps() {
-        return this.idGps;
+    public GPS getGps() {
+        return this.gps;
     }
 
-    public void setidGps(int idGps) {
-        this.idGps = idGps;
+    public void setGps(GPS gps) {
+        this.gps = gps;
     }
 
-    public int getproprieatario() {
+    public Cliente getproprieatario() {
         return this.proprieatario;
     }
 
-    public void setproprieatario(int proprieatario) {
+    public void setproprieatario(Cliente proprieatario) {
         this.proprieatario = proprieatario;
     }
 

@@ -1,5 +1,8 @@
 package isel.sisinf.grp05.model.veiculo;
 
+import isel.sisinf.grp05.model.cliente.Cliente;
+import isel.sisinf.grp05.model.gps.GPS;
+
 public interface IVeiculo {
     String getmatricula();
     void setmatricula(String matricula);
@@ -10,11 +13,11 @@ public interface IVeiculo {
     String getnomeCondutor();
     void setnomeCondutor(String nomeCondutor);
 
-    int getidGps();
-    void setidGps(int idGps);
+    GPS getGps();
+    void setGps(GPS Gps);
 
-    int getproprieatario();
-    void setproprieatario(int proprieatario) ;
+    Cliente getproprieatario();
+    void setproprieatario(Cliente proprieatario) ;
 
     int getnumAlarmes();
     void setnumAlarmes(int numAlarmes);

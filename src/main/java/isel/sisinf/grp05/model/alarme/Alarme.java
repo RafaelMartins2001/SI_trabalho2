@@ -1,6 +1,10 @@
 package isel.sisinf.grp05.model.alarme;
 
 import java.io.Serializable;
+
+import isel.sisinf.grp05.model.cliente.Cliente;
+import isel.sisinf.grp05.model.registoP.RegistoP;
+import isel.sisinf.grp05.model.veiculo.Veiculo;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,11 +17,15 @@ public class Alarme implements IAlarme {
     @Column(name="id")
     private int id;
 
-    @Column(name="idRegisto")
-    private int idRegisto;
+    @Column(name="registoP")
+    @OneToOne(cascade=CascadeType.PERSIST)
+    @JoinColumn(name="idRegisto")
+    private RegistoP registoP;
 
-    @Column(name="matricula")
-    private int matricula;
+    @Column(name="veiculo")
+    @ManyToOne(cascade=CascadeType.PERSIST,fetch = FetchType.LAZY)
+    @JoinColumn(name="Veiculo",referencedColumnName="matricula")
+    private Veiculo veiculo;
 
     public Alarme() {}
 
@@ -29,20 +37,21 @@ public class Alarme implements IAlarme {
         this.id = id;
     }
 
-    public int getidRegisto() {
-        return this.idRegisto;
+
+    public RegistoP getRegisto() {
+        return this.registoP;
     }
 
-    public void setidRegisto(int idRegisto) {
-        this.idRegisto = idRegisto;
+    public void setRegisto(RegistoP registoP) {
+        this.registoP = registoP;
     }
 
-    public int getmatricula() {
-        return this.matricula;
+    public Veiculo getVeiculo() {
+        return this.veiculo;
     }
 
-    public void setmatricula(int matricula) {
-        this.matricula = matricula;
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
     }
 
 }

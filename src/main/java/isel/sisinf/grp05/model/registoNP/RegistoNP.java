@@ -1,5 +1,6 @@
 package isel.sisinf.grp05.model.registoNP;
 
+import isel.sisinf.grp05.model.gps.GPS;
 import jakarta.persistence.*;
 import java.util.Date;
 
@@ -21,8 +22,10 @@ public class RegistoNP implements IRegistoNP{
     @Column(name="latitude")
     private int latitude;
 
-    @Column(name="idGps")
-    private int idGps;
+    @Column(name="gps")
+    @ManyToOne(cascade=CascadeType.PERSIST,fetch = FetchType.LAZY)
+    @JoinColumn(name="Gps",referencedColumnName="id")
+    private GPS gps;
 
     public RegistoNP() {}
 
@@ -58,12 +61,12 @@ public class RegistoNP implements IRegistoNP{
         this.latitude = latitude;
     }
 
-    public int getidGps() {
-        return this.idGps;
+    public GPS getGps() {
+        return this.gps;
     }
 
-    public void setidGps(int idGps) {
-        this.idGps = idGps;
+    public void setGps(GPS gps) {
+        this.gps = gps;
     }
 
 }

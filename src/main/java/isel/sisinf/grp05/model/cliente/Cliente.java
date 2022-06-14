@@ -1,6 +1,10 @@
 package isel.sisinf.grp05.model.cliente;
 
+import isel.sisinf.grp05.model.veiculo.Veiculo;
 import jakarta.persistence.*;
+
+import java.util.Set;
+
 @Entity
 @Table(name="cliente")
 @NamedQuery(name="Cliente.findAll", query="SELECT c FROM Cliente c")
@@ -24,6 +28,10 @@ public class Cliente implements ICliente {
 
     @Column(name="estado")
     private String estado;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy="proprietario",fetch = FetchType.LAZY)
+    private Set<Veiculo> veiculos;
+
 
     public Cliente(){}
 

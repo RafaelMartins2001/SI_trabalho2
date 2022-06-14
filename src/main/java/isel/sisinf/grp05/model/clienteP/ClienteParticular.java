@@ -10,13 +10,10 @@ public class ClienteParticular implements IClienteParticular{
     @Id
     @OneToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name="nif")
-    @Column(name = "nif")
     private Cliente clienteP;
 
-    @Column(name="cc")
-    @OneToOne(cascade=CascadeType.PERSIST)
-    @JoinColumn(name="nif")
-    private Cliente clienteAssociado;
+    @Column(name = "cc")
+    private Integer cc;
 
     public ClienteParticular() {}
 
@@ -28,12 +25,12 @@ public class ClienteParticular implements IClienteParticular{
         this.clienteP = clienteP;
     }
 
-    public Cliente getClienteAssociado() {
-        return this.clienteAssociado;
+    public Integer getCc() {
+        return this.cc;
     }
 
-    public void setClienteAssociado(Cliente clienteAssociado) {
-        this.clienteAssociado = clienteAssociado;
+    public void setCc(Integer cc) {
+        this.cc = cc;
     }
 
 }

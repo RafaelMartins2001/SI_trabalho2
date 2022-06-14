@@ -1,6 +1,5 @@
 package isel.sisinf.grp05.model.grupoZV;
 
-import java.io.Serializable;
 import java.util.Set;
 
 import isel.sisinf.grp05.model.veiculo.Veiculo;
@@ -15,20 +14,14 @@ public class GrupoZV implements IGrupoZV {
     @Column(name="id")
     private int id;
 
-    @Column(name="zv")
-    @ManyToMany
-    @JoinTable(name="ZV",
-            joinColumns=@JoinColumn(name="id"),
-            inverseJoinColumns=@JoinColumn(name="id"))
-    private Set<ZV> zvs;
+    @ManyToOne(cascade=CascadeType.PERSIST,fetch = FetchType.LAZY)
+    @JoinColumn(name="zv",referencedColumnName="id")
+    private ZV zv;
 
 
-    @Column(name="matricula")
-    @ManyToMany
-    @JoinTable(name="Veiculo",
-            joinColumns=@JoinColumn(name="matricula"),
-            inverseJoinColumns=@JoinColumn(name="matricula"))
-    private Set<Veiculo> veiculos;
+    @ManyToOne(cascade=CascadeType.PERSIST,fetch = FetchType.LAZY)
+    @JoinColumn(name="veiculo",referencedColumnName="matricula")
+    private Veiculo veiculo;
 
     public GrupoZV() {}
 
@@ -40,19 +33,19 @@ public class GrupoZV implements IGrupoZV {
         this.id = id;
     }
 
-    public Set<ZV> getZVs() {
-        return this.zvs;
+    public ZV getZVs() {
+        return this.zv;
     }
 
     public void setZV(ZV zv) {
-        this.zvs.add(zv);
+        this.zv = zv;
     }
 
-    public Set<Veiculo> getVeiculos() {
-        return this.veiculos;
+    public Veiculo getVeiculo() {
+        return this.veiculo;
     }
 
     public void setVeiculo(Veiculo veiculo) {
-        this.veiculos.add(veiculo);
+        this.veiculo = veiculo;
     }
 }

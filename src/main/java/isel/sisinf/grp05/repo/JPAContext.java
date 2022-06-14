@@ -56,7 +56,7 @@ public class JPAContext implements IContext{
     private EntityTransaction _tx;
     private int _txcount;
 
-	private ClienteRepository _clienteRepository;
+	public ClienteRepository _clienteRepository;
 	private ClienteIRepository _clienteIRepository;
 	private AlarmeRepository _alarmeRepository;
 	private AlarmsRepository _alarmsRepository;

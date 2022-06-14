@@ -14,7 +14,6 @@ public class ClienteInstitucional implements IClienteInstitucional{
     @Id
     @OneToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name="nif")
-    @Column(name = "nif")
     private Cliente cliente;
 
     @Id

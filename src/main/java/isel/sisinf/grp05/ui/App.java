@@ -1,9 +1,13 @@
 package isel.sisinf.grp05.ui;
 
+import isel.sisinf.grp05.repo.JPAContext;
+
 import java.util.Scanner;
 
 
 public class App {
+    static JPAContext jpa = new JPAContext();
+
     private static final String exit = "e";
 
     private static final String create_client = "create client";
@@ -122,6 +126,7 @@ public class App {
     }
     private static void read_client() {
         println("Initializing read_client: ***");
+        jpa._clienteRepository.findByKey(555555599);
         println("read_client concluded");
     }
     private static void update_client() {

@@ -115,7 +115,7 @@ public class ClienteTest {
         }
     }
 
-    @Test
+    /*@Test
     public void exercicioG(){
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("g05");
@@ -129,7 +129,7 @@ public class ClienteTest {
             RegistoNP p = new RegistoNP();
             p.setid(3001);
             p.setdata(new Date("2021-11-12 12:25:22"));
-            p.setidGps(2);
+            p.setGps(2);
             p.setlatitude(40);
             p.setlongitude(30);
 
@@ -146,7 +146,7 @@ public class ClienteTest {
             em.close();
             emf.close();
         }
-    }
+    }*/
 
     @Test
     public void novoVeiculo(){

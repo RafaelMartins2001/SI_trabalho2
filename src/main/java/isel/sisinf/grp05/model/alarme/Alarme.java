@@ -17,12 +17,10 @@ public class Alarme implements IAlarme {
     @Column(name="id")
     private int id;
 
-    @Column(name="registoP")
     @OneToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name="idRegisto")
     private RegistoP registoP;
 
-    @Column(name="veiculo")
     @ManyToOne(cascade=CascadeType.PERSIST,fetch = FetchType.LAZY)
     @JoinColumn(name="Veiculo",referencedColumnName="matricula")
     private Veiculo veiculo;

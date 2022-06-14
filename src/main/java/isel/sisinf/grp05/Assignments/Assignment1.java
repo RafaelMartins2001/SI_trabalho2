@@ -31,8 +31,8 @@ public class Assignment1 {
         }
     }
 
-    private static void selectClient(EntityManager em) {
-        
+    private static void selectClient(EntityManager em, Integer nif) {
+
     }
 
     private static void deleteClient(EntityManager em) {
@@ -54,7 +54,7 @@ public class Assignment1 {
         }
     }
 
-    private static void createVehicle(EntityManager em){
+    /*private static void createVehicle(EntityManager em){
         try {
             System.out.println("--# CREATE Vehicle");
             em.getTransaction().begin();
@@ -75,7 +75,7 @@ public class Assignment1 {
         finally {
             em.close();
         }
-    }
+    }*/
 
     private static void deleteVehicle(EntityManager em){
 

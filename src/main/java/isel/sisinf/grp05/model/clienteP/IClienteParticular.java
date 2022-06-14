@@ -6,8 +6,8 @@ public interface IClienteParticular {
     Cliente getClienteP();
     void setClienteP(Cliente clienteP);
 
-    Cliente getClienteAssociado();
-    void setClienteAssociado(Cliente clienteAssociado);
+    Integer getCc();
+    void setCc(Integer cc);
 }
 
 

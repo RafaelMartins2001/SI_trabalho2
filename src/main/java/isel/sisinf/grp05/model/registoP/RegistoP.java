@@ -24,7 +24,6 @@ public class RegistoP implements IRegistoP {
     @Column(name="latitude")
     private int latitude;
 
-    @Column(name="gps")
     @ManyToOne(cascade=CascadeType.PERSIST,fetch = FetchType.LAZY)
     @JoinColumn(name="Gps",referencedColumnName="id")
     private GPS gps;

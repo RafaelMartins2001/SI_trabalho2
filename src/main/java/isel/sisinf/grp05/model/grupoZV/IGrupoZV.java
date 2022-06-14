@@ -9,9 +9,9 @@ public interface IGrupoZV {
     int getId();
     void setId(int id);
 
-    Set<ZV> getZVs();
+    ZV getZVs();
     void setZV(ZV zv);
 
-    Set<Veiculo> getVeiculos();
+    Veiculo getVeiculo();
     void setVeiculo(Veiculo veiculo);
 }

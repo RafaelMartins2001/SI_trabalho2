@@ -128,7 +128,7 @@ public class App {
         println("Initializing read_client: ***");
         println("Please, enter nif.");
         Integer nif = s.nextInt();
-        Cliente c = jpa._clienteRepository.findByKey(nif);
+        Cliente c = jpa._clienteRepository.read(nif);
         System.out.print(c.getNif() + " | ");
         System.out.print(c.getEstado() + " | ");
         System.out.print(c.getNome() + " | ");

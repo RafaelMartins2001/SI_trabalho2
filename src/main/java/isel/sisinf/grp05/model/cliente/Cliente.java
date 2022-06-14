@@ -10,6 +10,9 @@ import java.util.Set;
 @NamedQuery(name="Cliente.findAll", query="SELECT c FROM Cliente c")
 
 public class Cliente implements ICliente {
+    private static final Integer DEFAULT_REFERENCE = null;
+    private static final String DEFAULT_STATE = "Activo";
+
     @Id
     @Column(name="nif")
     private int nif;
@@ -75,9 +78,13 @@ public class Cliente implements ICliente {
         this.referencia = referencia;
     }
 
+    public void setReferencia() {this.referencia = DEFAULT_REFERENCE;}
+
     public String getEstado(){
         return this.estado;
     }
 
     public void setEstado(String estado){ this.estado = estado; }
+
+    public void setEstado() {this.estado = DEFAULT_STATE;}
 }

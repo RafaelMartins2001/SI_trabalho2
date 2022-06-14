@@ -16,7 +16,6 @@ public class ClienteInstitucional implements IClienteInstitucional{
     @JoinColumn(name="nif")
     private Cliente cliente;
 
-    @Id
     @Column(name = "nomeContrato")
     private String nomeContrato;
 

@@ -1,6 +1,8 @@
 package isel.sisinf.grp05.ui;
 import isel.sisinf.grp05.model.cliente.Cliente;
 import isel.sisinf.grp05.repo.JPAContext;
+
+import java.util.Objects;
 import java.util.Scanner;
 
 
@@ -67,6 +69,7 @@ public class App {
 
         while (!input.equals(exit)) {
             switch (input) {
+                case "": break;
 
                 case create_client: create_client(); break;
 
@@ -123,17 +126,45 @@ public class App {
     private static void create_client() {
         println("Initializing create_client: ***");
 
+        Cliente c = new Cliente();
+
+        println("Enter nif:");
+        c.setNif(s.nextInt());
+
+        println("Enter name:");
+        c.setNome(s.nextLine());
+
+        println("Enter address:");
+        c.setMorada(s.nextLine());
+
+        println("Enter phone number:");
+        c.setTelefone(s.nextInt());
+
+        println("Do you want to reference someone? (Y/N)");
+        if (s.nextLine().equals("Y")) {
+            println("Enter reference.");
+            c.setReferencia(s.nextInt());
+        }
+        else c.setReferencia();
+
+        c.setEstado();
+
+        jpa._clienteRepository.create(c);
+
         println("create_client concluded");
     }
     private static void read_client() {
         println("Initializing read_client: ***");
-        println("Please, enter nif.");
+
+        println("Enter nif:");
         Integer nif = s.nextInt();
         Cliente c = jpa._clienteRepository.findByKey(nif);
+
         System.out.print(c.getNif() + " | ");
         System.out.print(c.getEstado() + " | ");
         System.out.print(c.getNome() + " | ");
-        System.out.print("\n\n\n");
+        System.out.print("\n\n");
+
         println("read_client concluded");
     }
     private static void update_client() {

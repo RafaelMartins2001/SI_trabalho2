@@ -27,5 +27,5 @@ import java.util.List;
 
 public interface IRepository<T,TCol,TK> extends IDataMapper<T, TK> {
 	T findByKey(TK key) throws Exception;
-	List<T> getAll() throws Exception;
+	List<T> findAll() throws Exception;
 }

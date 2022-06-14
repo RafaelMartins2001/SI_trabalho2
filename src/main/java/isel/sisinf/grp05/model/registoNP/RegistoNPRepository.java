@@ -27,7 +27,7 @@ public class RegistoNPRepository implements IRepository<Cliente, Collection<Clie
         }
 
         @Override
-        public List<Cliente> getAll() throws Exception {
+        public List<Cliente> findAll() throws Exception {
             return _em.createNamedQuery("Cliente.getAll", Cliente.class)
                     .getResultList();
         }

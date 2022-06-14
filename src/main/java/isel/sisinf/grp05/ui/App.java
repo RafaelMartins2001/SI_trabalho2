@@ -202,11 +202,3 @@ public class App {
         println("Test L.1 was successful / unsuccessful");
     }
 }
-/*
-            ctx.beginTransaction();
-
-                    System.out.println(ctx.rand_fx(1));
-
-                    ctx.commit();
-
- */

@@ -27,7 +27,7 @@ public class GpsRepository implements IRepository<Cliente, Collection<Cliente>, 
         }
 
         @Override
-        public List<Cliente> getAll() throws Exception {
+        public List<Cliente> findAll() throws Exception {
             return _em.createNamedQuery("Cliente.getAll", Cliente.class)
                     .getResultList();
         }

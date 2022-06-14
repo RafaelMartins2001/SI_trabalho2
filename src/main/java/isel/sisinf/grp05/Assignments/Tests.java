@@ -69,5 +69,13 @@ public class Tests {
             _em.close();
         }
     }
-    //TODO: Implementar o resto dos testes com o call até ao L
+
+    /*
+    *
+    *  TODO: Implementar o resto dos testes com o call até ao L
+    * TODO: Para o 2 a) apenas tem de ser lidos os registos_np 1 a 1 de forma lazy, enquanto houverem, não impedindo a escrita
+    *  de novos registos_np
+    * TODO: Para o 2 b) temos de testar o 2 a)
+    *
+    * */
 }

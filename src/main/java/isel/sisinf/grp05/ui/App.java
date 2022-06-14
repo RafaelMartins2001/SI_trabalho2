@@ -1,7 +1,6 @@
 package isel.sisinf.grp05.ui;
-
+import isel.sisinf.grp05.model.cliente.Cliente;
 import isel.sisinf.grp05.repo.JPAContext;
-
 import java.util.Scanner;
 
 
@@ -122,11 +121,16 @@ public class App {
 
     private static void create_client() {
         println("Initializing create_client: ***");
+
         println("create_client concluded");
     }
     private static void read_client() {
         println("Initializing read_client: ***");
-        jpa._clienteRepository.findByKey(555555599);
+        Cliente c = jpa._clienteRepository.findByKey(555555599);
+        System.out.print(c.getNif() + " | ");
+        System.out.print(c.getEstado() + " | ");
+        System.out.print(c.getNome() + " | ");
+        System.out.print("\n\n\n");
         println("read_client concluded");
     }
     private static void update_client() {

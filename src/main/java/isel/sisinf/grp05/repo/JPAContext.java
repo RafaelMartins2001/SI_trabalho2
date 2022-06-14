@@ -41,13 +41,6 @@ import isel.sisinf.grp05.model.veiculo.VeiculoRepository;
 import isel.sisinf.grp05.model.zv.ZVRepository;
 import jakarta.persistence.*;
 
-/*
-
-* TODO
-*   criar um repositorio por classe
-*   implementar os metodos de cada repositorio
-*
-* */
 
 public class JPAContext implements IContext{
 	private EntityManagerFactory _emf;
@@ -57,17 +50,17 @@ public class JPAContext implements IContext{
     private int _txcount;
 
 	public ClienteRepository _clienteRepository;
-	private ClienteIRepository _clienteIRepository;
-	private AlarmeRepository _alarmeRepository;
-	private AlarmsRepository _alarmsRepository;
-	private ClientePRepository _clientePRepository;
-	private GpsRepository _gpsRepository;
-	private GrupoZVRepository _grupoZVRepository;
-	private RegistoIRepository _registoIRepository;
-	private RegistoNPRepository _registoNPRepository;
-	private RegistoPRepository _registoPRepository;
-	private VeiculoRepository _veiculoRepository;
-	private ZVRepository _zvRepository;
+	public ClienteIRepository _clienteIRepository;
+	public AlarmeRepository _alarmeRepository;
+	public AlarmsRepository _alarmsRepository;
+	public ClientePRepository _clientePRepository;
+	public GpsRepository _gpsRepository;
+	public GrupoZVRepository _grupoZVRepository;
+	public RegistoIRepository _registoIRepository;
+	public RegistoNPRepository _registoNPRepository;
+	public RegistoPRepository _registoPRepository;
+	public VeiculoRepository _veiculoRepository;
+	public ZVRepository _zvRepository;
     
     public List helperQueryImpl(String jpql, Object... params) {
     	Query q = _em.createQuery(jpql);

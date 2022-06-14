@@ -21,10 +21,10 @@ public class ClienteRepository implements IRepository<Cliente, Collection<Client
                     .getResultList();
         }
         @Override
-        public Cliente create(Cliente entity) {
+        public Cliente create(Cliente cliente) {
             try {
                 _em.getTransaction().begin();
-                _em.persist(entity);
+                _em.persist(cliente);
                 _em.getTransaction().commit();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -33,7 +33,7 @@ public class ClienteRepository implements IRepository<Cliente, Collection<Client
             finally {
                 _em.close();
             }
-            return entity;
+            return cliente;
         }
 
         @Override

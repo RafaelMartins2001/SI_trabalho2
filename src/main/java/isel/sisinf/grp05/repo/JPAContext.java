@@ -26,10 +26,10 @@ package isel.sisinf.grp05.repo;
 import java.util.Collection;
 import java.util.List;
 
+import isel.sisinf.grp05.Assignments.Tests;
 import isel.sisinf.grp05.model.ClienteI.ClienteIRepository;
 import isel.sisinf.grp05.model.alarme.AlarmeRepository;
 import isel.sisinf.grp05.model.alarms.AlarmsRepository;
-import isel.sisinf.grp05.model.cliente.Cliente;
 import isel.sisinf.grp05.model.cliente.ClienteRepository;
 import isel.sisinf.grp05.model.clienteP.ClientePRepository;
 import isel.sisinf.grp05.model.gps.GpsRepository;
@@ -45,10 +45,11 @@ import jakarta.persistence.*;
 public class JPAContext implements IContext{
 	private EntityManagerFactory _emf;
     private EntityManager _em;
-    
+
     private EntityTransaction _tx;
     private int _txcount;
 
+	public Tests _tests;
 	public ClienteRepository _clienteRepository;
 	public ClienteIRepository _clienteIRepository;
 	public AlarmeRepository _alarmeRepository;
@@ -138,6 +139,7 @@ public class JPAContext implements IContext{
 		this._emf = Persistence.createEntityManagerFactory(persistentCtx);
 		this._em = _emf.createEntityManager();
 
+		this._tests = new Tests(_em);
 		this._clienteRepository = new ClienteRepository(_em);
 		this._clienteIRepository = new ClienteIRepository(_em);
 		this._alarmeRepository = new AlarmeRepository(_em);

@@ -27,5 +27,5 @@ public interface IDataMapper<T, Tid> {
     T create(T entity);
     T read(Tid id);
     T update(T entity);
-    T delete(T entity);
+    Tid delete(Tid id);
 }

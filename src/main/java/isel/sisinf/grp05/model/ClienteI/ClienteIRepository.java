@@ -5,50 +5,91 @@ import isel.sisinf.grp05.repo.IRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.Query;
 
 import java.util.Collection;
 import java.util.List;
 
 
-public class ClienteIRepository implements IRepository<Cliente, Collection<Cliente>, Integer> {
-        private final EntityManager _em;
-        //private final Mapper mapper;
+public class ClienteIRepository implements IRepository<ClienteInstitucional, Collection<ClienteInstitucional>, Integer> {
+    private final EntityManager _em;
 
-        public ClienteIRepository(EntityManager em){
-            this._em = em;
-            //this.mapper = ;
-        }
-
-        @Override
-        public Cliente findByKey(Integer key) {
-            return _em.createNamedQuery("Cliente.findByKey", Cliente.class)
-                    .setParameter("key", key)
-                    .getSingleResult();
-        }
-
-        @Override
-        public List<Cliente> findAll() throws Exception {
-            return _em.createNamedQuery("Cliente.getAll", Cliente.class)
-                    .getResultList();
-        }
-        @Override
-        public Cliente create(Cliente entity) {
-            _em.persist(entity);
-            return entity;
-        }
-
-        @Override
-        public Cliente read(Integer id) {
-            return null;
-        }
-
-        @Override
-        public Cliente update(Cliente entity) {
-            return null;
-        }
-
-        @Override
-        public Cliente delete(Cliente entity) {
-            return null;
-        }
+    public ClienteIRepository(EntityManager em) {
+        this._em = em;
     }
+
+    @Override
+    public List<ClienteInstitucional> findAll() throws Exception {
+        return _em.createNamedQuery("Cliente.getAll", ClienteInstitucional.class)
+                .getResultList();
+    }
+
+    @Override
+    public Integer delete(Integer entity) {
+        try {
+            _em.getTransaction().begin();
+            Query query = _em.createNativeQuery("delete from cliente_institucional where nif = (?1)");
+            query.setParameter(1, entity);
+            query.executeUpdate();
+            _em.getTransaction().commit();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            throw e;
+        } finally {
+            _em.close();
+        }
+        return null;
+    }
+
+
+    @Override
+    public ClienteInstitucional create(ClienteInstitucional entity) {
+        try {
+            _em.getTransaction().begin();
+            _em.persist(entity);
+            _em.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            throw e;
+        }
+        finally {
+            _em.close();
+        }
+        return entity;
+    }
+
+    @Override
+    public ClienteInstitucional read(Integer id) {
+        ClienteInstitucional c;
+        try {
+            _em.getTransaction().begin();
+            Query query = _em.createNativeQuery("select * from cliente where nif = ?1", Cliente.class);
+            query.setParameter(1, id);
+            c = (ClienteInstitucional) query.getSingleResult();
+            _em.getTransaction().commit();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            throw e;
+        } finally {
+            _em.close();
+        }
+        return c;
+    }
+
+    @Override
+    public ClienteInstitucional update(ClienteInstitucional entity) {
+        try {
+            _em.getTransaction().begin();
+            _em.persist(entity);
+            _em.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            throw e;
+        } finally {
+            _em.close();
+        }
+        return entity;
+    }
+}

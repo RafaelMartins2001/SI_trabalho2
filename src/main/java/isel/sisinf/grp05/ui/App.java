@@ -122,7 +122,6 @@ public class App {
 
     private static void create_client() {
         println("Initializing create_client: ***");
-
         println("create_client concluded");
     }
     private static void read_client() {
